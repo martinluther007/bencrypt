@@ -203,6 +203,11 @@ section .color:nth-child(3) {
   color: #000;
   text-decoration: none;
 }
+
+.error {
+  color: rgb(255, 10, 0);
+  z-index: 10;
+}
 /* <?php
     ALTER TABLE #TABLENAME# CHANGE #COLUMNNAME# #NEWNAME#;
 } */

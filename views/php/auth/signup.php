@@ -4,12 +4,11 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $phone = $_POST['phoneNumber'];
     $password = $_POST['password'];
-
+    print $email;
     require_once "../server.php";
     require_once "./auth_functions.php";
 
-
-    if (empty_input_signup($name, $email, $phone, $password) !== false) {
+    if (empty_input_signup($full_name, $email, $phone, $password) !== false) {
         header("location:../index.php?error=emptyinputs");
         exit();
     }

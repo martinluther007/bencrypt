@@ -7,12 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script defer src="./js/script.js"></script>
+    <script defer src="../js/script.js"></script>
     <title>Document</title>
 </head>
 
 <body>
+    <?php
+
+    if (isset($_GET['error'])) {
+        switch ($_GET['error']) {
+            case 'emptyinputs':
+                echo "<p class='error'>Please fill in all the inputs</p>";
+                break;
+            case 'invalidemail':
+                echo "<p class='error'>Please fill in a valid email</p>";
+                break;
+            case 'invalidphone':
+                echo "<p class='error'>Please fill in a valid phone number</p>";
+                break;
+            case 'invalidpassword':
+                echo "<p class='error'>Password must be greater than 8 characters</p>";
+                break;
+            case 'emailexists':
+                echo "<p class='error'>This email already exists</p>";
+                break;
+            case 'none':
+                echo "<p class='error'>Signed up successfully</p>";
+                break;
+        }
+    }
+
+    ?>
     <section>
+
 
         <div class="color"></div>
         <div class="color"></div>

@@ -12,21 +12,6 @@ const signupErrors = {
   phoneNumber: "",
 };
 
-document.querySelector(".input-Box").addEventListener("blur", (e) => {
-  console.log(e.target);
-  alert("what a life");
-});
-
-document.querySelector(".input-Box").addEventListener("blur", (e) => {
-  alert("it's all good");
-});
-
-document.getElementById("fname").addEventListener("blur", myFunction);
-
-function myFunction() {
-  alert("Input field lost focus.");
-}
-
 $(document).ready(() => {
   $(".inputBox").change(function (e) {
     signupValues[e.target.name] = e.target.value;

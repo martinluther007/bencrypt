@@ -1,10 +1,11 @@
 <?php
 
-function empty_input_signup($name, $email, $phone, $password)
+function empty_input_signup($full_name, $email, $phone, $password)
 {
     $result = false;
-    if (empty($name) || empty($email) || empty($phone) || empty($password))
-        $result = false;
+    if (empty($full_name) || empty($email) || empty($phone) || empty($password))
+        $result = true;
+    // echo "<script> alert('$result')</script>";
     return $result;
 }
 
@@ -20,8 +21,9 @@ function invalid_email($email)
 function invalid_phone($phone)
 {
     $result = false;
-    if (!preg_match('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[s\./0-9]*$/g', $phone))
-        $result = false;
+    // NOT GOOD PHONE NUMBER VERIFICATION
+    if (preg_match('/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/', $phone))
+        $result = true;
     return $result;
 }
 function invalid_password($password)
@@ -45,7 +47,6 @@ function email_exists($conn, $email)
     mysqli_stmt_execute($stmt);
     $result_data = mysqli_stmt_get_result($stmt);
     if ($row = mysqli_fetch_assoc($result_data)) {
-        $result = true;
         return $row;
     }
     mysqli_stmt_close($stmt);
